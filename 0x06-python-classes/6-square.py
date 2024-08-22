@@ -1,55 +1,54 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)'
-
-"""
+"""Corordinates of a Square"""
 
 
 class Square:
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)'
-
-    """
-
+    """Square defines a geometric shape square"""
     def __init__(self, size=0, position=(0, 0)):
+        """Constructor for Square class"""
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        return self.__val
+        """Get the size attribute"""
+        return self.__size
 
     @size.setter
     def size(self, value):
-        if not isinstance(value, int):
-            raise TypeError('size must be an integer')
+        """Set of the size attribute"""
+        if not type(value) is int:
+            raise TypeError("size must be an integer")
         if value < 0:
-            raise ValueError('size must be >= 0')
-        self.__val = value
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
 
     @property
     def position(self):
-        return self.__pos
+        """Get the position attribute"""
+        return self.__position
 
     @position.setter
     def position(self, value):
-        if (len(value) != 2):
-            raise TypeError('position must be a tuple of 2 positive integers')
-        elif not isinstance(value[0], int):
-            raise TypeError('position must be a tuple of 2 positive integers')
-        elif not isinstance(value[1], int):
-            raise TypeError('position must be a tuple of 2 positive integers')
-        self.__pos = value
+        """Set the position attribute"""
+        if not type(value) is tuple or len(value) != 2 \
+                or not type(value[0]) is int or not type(value[1]) is int \
+                or value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value
 
     def area(self):
-        s = self.__val * self.__val
-        return s
+        """Area returns the current square area"""
+        return self.__size**2
 
     def my_print(self):
-        if self.__val == 0:
+        """Prints the square forming by '#' symbol"""
+        if self.__size == 0:
             print()
         else:
-            for i in range(self.__val):
-                if self.__pos[1] >= 0:
-                    print("_" * self.__pos[0], end="")
-                    print("#" * self.__val)
-                else:
-                    print("#" * self.__val)
+            print('\n'*self.__position[1], end='')
+            for i in range(0, self.__size):
+                print(' '*self.__position[0], end='')
+                print('#'*self.__size)

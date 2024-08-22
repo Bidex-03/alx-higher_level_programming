@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-'''A module'''
+"""Class My Imteger"""
 
 
 class MyInt(int):
-    '''A class'''
+    """Class Myint that inherits from int"""
+    def __eq__(self, val):
+        """what was != is now =="""
+        return int(self) != val
 
-    def __eq__(self, value):
-        return int(self) != value
-
-    def __ne__(self, value):
-        return int(self) == value
+    def __ne__(self, val):
+        """what was == is now !="""
+        return int(self) == val

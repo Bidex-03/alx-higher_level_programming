@@ -1,8 +1,12 @@
 #!/usr/bin/python3
-'''A mlodule'''
+"""Class to JSON"""
 
 
 def class_to_json(obj):
-    '''A class'''
+    """
+    Returns the dictionary description with simple data structure
 
+    Args:
+      obj: instance of a Class (obj)
+    """
     return obj.__dict__

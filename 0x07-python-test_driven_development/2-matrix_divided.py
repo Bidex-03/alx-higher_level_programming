@@ -1,42 +1,31 @@
 #!/usr/bin/python3
 
-"""A module of matrix"""
-
 
 def matrix_divided(matrix, div):
-    """A function of matrix"""
+    """
+    Args: Divides all element of a matrix.
+        :param matrix: must be a list of lists of integers or floats.
+        :param div: a number (integer or float), can't be equal to 0,
+                    used in dividing all elements of the matrix,
+                    rounded to 2 decimal places.
+    Raises:
+    TypeError - if list of lists is not integers or floats, if each row of the matrix is not same size.
+    ZeroDivisionError - if div equal to 0.
 
-    row = len(matrix)
-    col = len(matrix[0])
-
-    new_mat = [[0 for i in range(col)] for j in range(row)]
-
-    if isinstance(div, int):
-        pass
-    elif isinstance(div, float):
-        pass
-    else:
-        raise TypeError('div must be a number')
-
+    Returns: new matrix.
+    """
+    if type(div) not in [int, float]:
+        raise TypeError("div must be a number")
     if div == 0:
-        raise ZeroDivisionError('division by zero')
-    else:
-        pass
+        raise ZeroDivisionError(
+            "Each row of the matrix must have the same size")
 
-    for i in range(row - 1):
-        if len(matrix[i]) == len(matrix[i + 1]):
-            pass
-        else:
-            raise TypeError('Each row of the matrix must have the same size')
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
+    if not all(type(num) in [int, float] for row in matrix for num in row):
+        raise TypeError("matrix must be a matrix (list of lists)"
+                        " of integers/floats")
 
-    for i in range(row):
-        for j in range(col):
-            if isinstance(matrix[i][j], int):
-                new_mat[i][j] = round((matrix[i][j] / div), 2)
-            elif isinstance(matrix[i][j], float):
-                new_mat[i][j] = round((matrix[i][j] / div), 2)
-            else:
-                raise TypeError('matrix must be a matrix '
-                                '(list of lists) of integers/floats')
-
-    return (new_mat)
+    new_matrix = [[eval("{:.2f}".format(num / div)) for num in row]
+                  for row in matrix]
+    return new_matrix

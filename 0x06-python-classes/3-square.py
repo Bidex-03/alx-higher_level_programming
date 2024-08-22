@@ -1,32 +1,19 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)'
-
-"""
+"""Area of a square"""
 
 
 class Square:
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)'
-
-    """
+    """Defines a square"""
 
     def __init__(self, size=0):
-        """python3 -c 'print(__import__("my_module").my_function.__doc__)'
-        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
-
-        """
-
-        self.__size = size
-
-        if not isinstance(size, int):
-            raise TypeError('size must be an integer')
-        if size < 0:
-            raise ValueError('size must be >= 0')
+        """Private instance attribute with size"""
+        if type(size) is not int:
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
 
     def area(self):
-        """python3 -c 'print(__import__("my_module").my_function.__doc__)'
-        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
-
-        """
-
-        s = self.__size * self.__size
-        return s
+        """Returns the area of the Square"""
+        return self.__size ** 2

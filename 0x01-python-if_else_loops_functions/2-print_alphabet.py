@@ -1,6 +1,3 @@
 #!/usr/bin/python3
-num = range(97, 123)
-
-for count in num:
-    out = chr(count)
-    print("{}".format(out), end="")
+for i in range(97, 123):
+    print("{}".format(chr(i)), end="")

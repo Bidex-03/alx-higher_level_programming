@@ -1,29 +1,34 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)'
-
-"""
+"""Access and update private attribute"""
 
 
 class Square:
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)'
-
-    """
+    """Class square"""
 
     def __init__(self, size=0):
-        self.size = size
+        """Square with the size"""
+        if type(size) is not int:
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
+
+    def area(self):
+        """Area of the Square"""
+        return self.__size ** 2
 
     @property
     def size(self):
-        return self.__val
+        """Private attribute size"""
+        return self.__size
 
     @size.setter
     def size(self, value):
-        if not isinstance(value, int):
-            raise TypeError('size must be an integer')
-        if value < 0:
-            raise ValueError('size must be >= 0')
-        self.__val = value
-
-    def area(self):
-        s = self.__val * self.__val
-        return s
+        """Size private attribute"""
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value

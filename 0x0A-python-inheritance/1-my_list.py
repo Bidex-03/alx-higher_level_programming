@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""A module of print sorted"""
+"""Class MyList"""
 
 
 class MyList(list):
-    """ A class of my list"""
-
+    """A  list class"""
     def print_sorted(self):
-        print(sorted(list(self)))
+        """Prints the sorted list"""
+        if issubclass(MyList, list):
+            print(sorted(self))

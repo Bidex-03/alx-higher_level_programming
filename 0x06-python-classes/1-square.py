@@ -1,18 +1,10 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)'
-
-"""
+"""Square with size"""
 
 
 class Square:
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)'
+    """A class square that defines a square by its size"""
 
-    """
-
-    def __init__(self, size):
-        """python3 -c 'print(__import__("my_module").my_function.__doc__)'
-        python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
-
-        """
-
-        self.__size = size
+    def __init__(self, square_size):
+        """Square size"""
+        self.__size = square_size

@@ -1,33 +1,24 @@
 #!/usr/bin/python3
-'''A module'''
-
-
-class BaseGeometry:
-    '''A class'''
-
-    def area(self):
-        raise Exception('area() is not implemented')
-
-    def integer_validator(self, name, value):
-        if type(value) is not int:
-            raise TypeError(f'{name} must be an integer')
-
-        if value <= 0:
-            raise ValueError(f'{name} must be greater than 0')
+"""A class Full rectangle that inherits from BaseGeometry"""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    '''A child class'''
-
+    """class Rectangle"""
     def __init__(self, width, height):
+        """initialization of the Full Rectangle
+
+        Args:
+            width: must be positive (int)
+            height: must be positive (int)
+        """
+        self.integer_validator("width", width)
         self.__width = width
+        self.integer_validator("height", height)
         self.__height = height
 
-        super().integer_validator("width", self.__width)
-        super().integer_validator("height", self.__height)
-
     def area(self):
-        return (self.__width * self.__height)
+        return self.__width * self.__height
 
     def __str__(self):
-        return (f"[{type(self).__name__}] {self.__width}/{self.__height}")
+        return '[Rectangle] ' + str(self.__width) + '/' + str(self.__height)

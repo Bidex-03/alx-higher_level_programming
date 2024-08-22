@@ -1,12 +1,17 @@
 #!/usr/bin/python3
-"""A module of function"""
 
 
 def say_my_name(first_name, last_name=""):
-    """A function of name"""
-    if not isinstance(first_name, str):
-        raise TypeError('first_name must be a string')
-    elif not isinstance(last_name, str):
-        raise TypeError('last_name must be a string')
-    else:
-        print("My name is {} {}".format(first_name, last_name))
+    """
+    Args: Prints My name is <first name> <last name>.
+        :param last_name: <first name> (must be strings),
+        :param first_name: <last name> (must be strings).
+
+    Raises:
+    TypeError - if not a string.
+    """
+    if type(first_name) != str:
+        raise TypeError("first name must be a string")
+    if type(last_name) != str:
+        raise TypeError("last name must be a string")
+    print("My name is {} {}".format(first_name, last_name))

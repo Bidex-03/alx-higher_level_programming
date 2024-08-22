@@ -1,10 +1,16 @@
 #!/usr/bin/python3
-'''A module'''
+"""Append to a file"""
 
 
 def append_write(filename="", text=""):
-    '''A function'''
+    """
+    Append s string to the end of a text file.
+    If file do not exist - it creates it
 
-    with open(filename, 'a', encoding='utf-8') as my_file:
-        my_file.write(text)
-        return (len(text))
+    Args:
+        filename: string
+        text: string
+    Returns: the number of characters added (int)
+    """
+    with open(filename, mode="a", encoding="utf-8") as txt_file:
+        return txt_file.write(text)

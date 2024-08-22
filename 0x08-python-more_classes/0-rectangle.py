@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""This is a module of class
-"""
+"""Simple rectangle"""
 
 
 class Rectangle:
-    """This is an empty class
+    """
+    An empty class Rectangle that defines a rectangle
     """
     pass

@@ -1,20 +1,9 @@
 #!/usr/bin/node
-
-const argv = require('process');
-
-let count = process.argv[2];
-
-if (isNaN(count))
-{
-	console.log('Missing number of occurrences');
+const x = Number(process.argv[2]);
+if (x) {
+  for (let i = 0; i < x; i++) {
+    console.log('C is fun');
+  }
+} else {
+  console.log('Missing number of occurrences');
 }
-else
-{
-	while (count > 0)
-	{
-		console.log('C is fun');
-		count--;
-	}
-}
-
-
